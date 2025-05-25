@@ -5,12 +5,11 @@ import { faTrash,faIndianRupeeSign } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import axios from 'axios';
 
-
 const Home = () => {
     const {transactions,setTransactions,user} = useContext(fetchdata)
     const deletehandler = async(title,date,amount,color,sign,money) => {
       try{
-      const response =await axios.patch(`http://localhost:3003/transactions/delete`,{
+      const response =await axios.patch(`${import.meta.VITE_BACKEND_URL_URL}/transactions/delete`,{
         email:user.email,
         title,
         date,

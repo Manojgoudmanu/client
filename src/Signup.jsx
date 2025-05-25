@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Signup.css";  
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
- 
+import { configDotenv } from "dotenv";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -33,7 +33,7 @@ if(userData.password !== userData.confirmPassword){
    return
 }
 
-  const signupdetails = await axios.post('http://localhost:3003/signin',(userData));
+  const signupdetails = await axios.post(`${import.meta.VITE_BACKEND_URL_URL}/signin`,(userData));
 
   setSucess("sucessfull, you can log-in")
   setLog(" login")

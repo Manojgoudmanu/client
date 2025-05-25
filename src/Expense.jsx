@@ -5,7 +5,6 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-
 const Expense = () => {
   let { transactions, setTransactions,count, setCount,user} = useContext(fetchdata);
 
@@ -27,7 +26,7 @@ const Expense = () => {
     }
 
     try{
-      const response = await axios.post("http://localhost:3003/transactions/a", {
+      const response = await axios.post(`${import.meta.VITE_BACKEND_URL_URL}/transactions/a`, {
         email:user.email,  // Send email to match backend API
         transactions: newincome
       })

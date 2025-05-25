@@ -9,9 +9,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { fetchdata } from "./App";
 import { useNavigate } from "react-router-dom";
-import "./Add.css";
+import "./Add.css"; 
 import axios from "axios";
-
 const Add = () => {
 
   const { transactions, setTransactions, user, setUser } = useContext(fetchdata);
@@ -20,7 +19,7 @@ const Add = () => {
 
   const deletehandler = async(title,date,amount,color,sign,money) => {
     try{
-    const response =await axios.patch(`http://localhost:3003/transactions/delete`,{
+    const response =await axios.patch(`${import.meta.VITE_BACKEND_URL}/transactions/delete`,{
       email:user.email,
       title,
       date,

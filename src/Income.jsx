@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
-
 const Income = () => {
 
   const {transactions,setTransactions,count,setCount,user} = useContext(fetchdata)
@@ -28,7 +27,7 @@ const Income = () => {
     }
 
     try{
-      const response = await axios.post("http://localhost:3003/transactions/a",{
+      const response = await axios.post(`${import.meta.VITE_BACKEND_URL_URL}/transactions/a`,{
         email:user.email,
         transactions:newincome})
       setTransactions([...transactions,response.data])

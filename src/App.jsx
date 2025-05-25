@@ -1,7 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import { Route, Routes, Navigate, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-
 import "./App.css";
 import "./Home.css";
 import Home from "./Home";
@@ -63,7 +62,7 @@ function App() {
   useEffect(() => {
     if (user && user.email) {
       axios
-        .get(`http://localhost:3003/transactions/${user.email}`)
+        .get(`${import.meta.VITE_BACKEND_URL_URL}/transactions/${user.email}`)
         .then((resp) => {
           setTransactions(resp.data);
         })
