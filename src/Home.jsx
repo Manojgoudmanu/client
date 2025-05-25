@@ -3,24 +3,43 @@ import { fetchdata } from './App'
 import Footer from './Footer'
 import { faTrash,faIndianRupeeSign } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
+import axios from 'axios';
 
 
 const Home = () => {
-    const {balance,setBalance,transactions,setTransactions} = useContext(fetchdata)
-    const deletehandler = (index)=>{
-      const updatedtrans = [...transactions];
-      updatedtrans.splice(index,1)
-      setTransactions(updatedtrans)
+    const {transactions,setTransactions,user} = useContext(fetchdata)
+    const deletehandler = async(title,date,amount,color,sign,money) => {
+      try{
+      const response =await axios.patch(`http://localhost:3003/transactions/delete`,{
+        email:user.email,
+        title,
+        date,
+        amount,
+        sign,
+        color,
+        money
   
-      console.log("deleted")
+  
+      })
+      if(response.data.sucess){
+        const filtered = transactions.filter(
+          (ts)=>!(ts.title === title && ts.date === date && ts.amount === amount && ts.money === money && ts.sign === sign && ts.color === color)
+        )
+        setTransactions(filtered);
+        console.log(`trans deleted sucessfully`)
+      }
+    }catch(error){
+      console.error(`error in deletng transactions ${error}`)
   
     }
+  
+    };
 
     const sumincome = ()=>{
       return transactions.filter((item)=>item.money === "Income").reduce((sum,item)=>sum + Number(item.amount),0)//reduce(accumiltor,currentvalue)=>{},inititalvalue
     }
     const sumexpense = ()=>{
-      return transactions.filter((ts)=>ts.money === "Expense").reduce((sum,item)=> sum + Number(item.amount),0)
+      return transactions.filter((ts)=>ts.money === "expense").reduce((sum,item)=> sum + Number(item.amount),0)
     }
    const totalbalance =()=> sumincome() - sumexpense();
     
@@ -33,19 +52,20 @@ const Home = () => {
          <div id="firstbox">
           <div>
             <h3>Total Balance</h3>
-            <span>💰{totalbalance()}<FontAwesomeIcon icon={faIndianRupeeSign} /></span>
+            <span>💰 <FontAwesomeIcon icon={faIndianRupeeSign} />{totalbalance()}</span>
           </div>
 
           <div>
-            <h3>INCOME</h3>
-            <span id="expence">💵{sumincome()}
+            <h3>MONEY</h3>
+            <span id="expence">💵 
             <FontAwesomeIcon icon={faIndianRupeeSign} />
+            {sumincome()}
             </span>
           </div>
 
           <div>
             <h3>EXPENSE</h3>
-            <span id="balance">💸{sumexpense()}<FontAwesomeIcon icon={faIndianRupeeSign} /> </span>
+            <span id="balance">💸 <FontAwesomeIcon icon={faIndianRupeeSign} /> {sumexpense()}</span>
           </div>
         </div>
         
@@ -63,7 +83,8 @@ const Home = () => {
                                                   <p className="transaction-date">{ts.date}</p>
                                               </div>
                                               <p className={`transaction-amount ${ts.color}`}>{ts.sign}{ts.amount}</p>
-                                              <button className='deletebutton' onClick={deletehandler}><FontAwesomeIcon icon={faTrash} /></button>
+                                              <button className='deletebutton'                     onClick={() => deletehandler(ts.title, ts.date, ts.amount, ts.color, ts.sign, ts.money)}
+                                              ><FontAwesomeIcon icon={faTrash} /></button>
                                           </div>
                                       ))
                                   ) : (

@@ -56,21 +56,43 @@
   }
   
   /* Button */
-  .Startbutton {
-    background-color: #9333ea; /* Purple */
-    color: white;
-    padding: 12px 20px 15px ;
-    border-radius: 24px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 20px;
-    margin-left: 10px;
-    transition: background-color 0.1s ease;
-  }
-  
-  /* Hover Effect */
-  .Startbutton:hover {
-    background-color: #7e22ce;
-    transform: scale(1.1);
-  }
+.Startbutton {
+  padding: 1em 2em;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #2c9caf;
+  background-color: black;
+  transition: all 1000ms;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid #000000;
+}
+
+.Startbutton:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+  outline: 2px solid #70bdca;
+  box-shadow: 4px 5px 17px -4px #268391;
+}
+
+.Startbutton::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #22bdd8;
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 1000ms;
+}
+
+.Startbutton:hover::before {
+  width: 250%;
+}

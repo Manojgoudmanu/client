@@ -8,7 +8,10 @@ import walletImage from './assets/image.jpg'
 
 
 const Welcome = () => {
-  const nav = useNavigate()
+  const navigate =useNavigate();
+  const nav = useNavigate();
+
+
   return (
     <div className='container'>
          <div className='containercard'>
@@ -18,7 +21,7 @@ const Welcome = () => {
             <h2 className='Title'>Save your money with Expense tracker</h2>
             <p className='Subtitle'>Save Money! The more money works for you the less you have to work for it</p>
             <div>
-                <button className='Startbutton' onClick={()=>nav('/homepage')}>Let's Start</button>
+                <button className='Startbutton' onClick={()=>nav('/login')}>Let's Start</button>
             </div>
         </div> 
         

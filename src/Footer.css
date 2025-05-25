@@ -1,11 +1,26 @@
-.footer{
-    color: rgb(84, 243, 243);
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    bottom: 0px;
-    
-    
-    
-  }
-  
+.footer {
+  color:#f3eff5;
+  display: flex;
+  justify-content: space-between;
+  position:fixed;
+  padding: 15px 40px;  
+  top: 0;
+  left: 440px;  
+  height: 40vh;
+  flex-direction: column;
+  padding-top: 0px;
+  transform: translateY(50%);
+}
+
+.button {
+  font-size: 30px;
+  margin-bottom: -120px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #121A2A;
+  border: 2px solid rgb(7, 8, 8);
+}

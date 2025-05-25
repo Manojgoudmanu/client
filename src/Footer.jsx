@@ -10,19 +10,19 @@ const Footer = () => {
   return (
     <div>
            <section className="footer">
-        <div className='icon'>
+        <div className='button'>
           <FontAwesomeIcon icon={faHouse} onClick={()=>nav("/homepage")} />
         </div>
-        <div className='icon'>
-          <FontAwesomeIcon icon={faChartSimple} />
+        <div className='button'>
+          <FontAwesomeIcon icon={faChartSimple} onClick={()=>nav("/Statics")} />
         </div>
-        <div className='icon'>
+        <div className='button'>
           <FontAwesomeIcon icon={faSquarePlus} onClick={()=>nav('/addexpense')}/>
         </div>
-        <div className='icon'>
+        <div className='button'>
           <FontAwesomeIcon icon={faBell} onClick={()=>nav('/notifications')} />
         </div>
-        <div className='icon'>
+        <div className='button'>
           <FontAwesomeIcon icon={faUser} onClick={()=>nav('/Profile')}/>
         </div>
       </section>

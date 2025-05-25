@@ -1,21 +1,61 @@
 import React, { useState } from "react";
 import "./Signup.css";  
+import axios from 'axios'
+import { useNavigate } from "react-router-dom";
  
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [submit, setSubmit] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [sucess, setSucess] = useState("");
+  const nav = useNavigate()
+  const [log,setLog] =useState()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmit(name);
-    console.log("User Data:", { name, email, password });
+    // setSubmit(name);
+    console.log("User Data:", { name, email, password, confirmPassword });
+
+    const userData = {
+      name,
+      email,
+      password,
+      confirmPassword
+    }
+
+   try{
+if(userData.password !== userData.confirmPassword){
+
+  setError("you have an ERROR 🌋:paswords do not match ")
+   return
+}
+
+  const signupdetails = await axios.post('http://localhost:3003/signin',(userData));
+
+  setSucess("sucessfull, you can log-in")
+  setLog(" login")
+
+
+    
     setName("");
     setEmail("");
     setPassword("");
+    setConfirmPassword("");
+    setError("")
+   }catch(error){
+      setError("you have and error in sign up,please try again ")
+
+    }
+  
+  
+  
+  
   };
+  
+
 
   return (
     <div className="signup-container">
@@ -45,8 +85,20 @@ const SignUp = () => {
             value={password}
             required
           />
-         <button> <a href="/login"> Sign Up </a> </button> 
+          <input 
+          type="password"
+          placeholder="Confirm Password"
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          value={confirmPassword}
+          required
+          />
+         {error &&  <p>{error}</p>}
+          {sucess && <p>{sucess}</p>}
+         <button type="submit" onClick={()=>nav('/login')}>   Sign Up  </button> 
         </form>
+       <p> 
+        Already have an account! <a href="/login">Login</a>
+       </p>
       </div>
     </div>
   );

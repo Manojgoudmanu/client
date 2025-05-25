@@ -1,4 +1,4 @@
-.add-container {
+/* .add-container {
     border-radius: 10px;
     max-width: 400px;
     margin: 1rem auto;
@@ -6,7 +6,7 @@
     padding: 1rem;
     box-shadow: 10px 10px 10px 10px rgba(222, 6, 110, 0.1);
   
-  }
+  } */
   
   .add-form {
     background: rgb(255, 255, 255);
@@ -79,21 +79,24 @@
     justify-content: space-between;
     align-items: center;
     background: #e8e7e7;
-    padding: 10px;
+    padding: 6px;
     border-bottom: 1px solid #d3cece;
-    border-radius: 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    width: 90%;
+    margin: 5px auto;
   }
   .incomebox {
     border-left: 5px solid #55e75c;
     background: #e8f5e9;
   }
   .expensebox{
-    border-left: 5px solid #fd4c2d;
+    border-left: 5px solid #fd745c;
     background: #e8f5e9;
   }
   
   .transaction-name {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     color: #333;
   }
@@ -104,7 +107,7 @@
   }
   
   .transaction-amount {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
   }
  

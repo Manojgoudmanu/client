@@ -6,14 +6,13 @@
     justify-content: center;
     
   }
+
   #container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 10px;
     justify-content: center;
-   
-    
   }
   h1 {
     text-align: center;

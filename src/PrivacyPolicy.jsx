@@ -1,9 +1,16 @@
 import React from "react";
 import "./PrivacyPolicy.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+
 
 const PrivacyPolicy = () => {
+  const nav = useNavigate()
   return (
+    
     <div className="privacy-container">
+     <FontAwesomeIcon icon={faAnglesLeft} className="buto" onClick={()=>nav("/profile")} />   
       <h1>Privacy Policy</h1>
       <p>Last updated: March 2025</p>
 

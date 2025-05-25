@@ -17,6 +17,11 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
+  .profile-page {
+    background: none !important ;  
+     
+}
+
   /* Profile Header */
   .profile-header {
     margin-bottom: 20px;
@@ -181,6 +186,7 @@
 .blue { color: #0984e3; }
 .yellow { color: #f1c40f; }
 .red { color: #d63031; }
+
 
 /* Logout Button */
 .option.logout {

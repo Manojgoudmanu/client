@@ -4,7 +4,13 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: #f8f9fd;
+    
+}
+.btg{
+    position: absolute;
+    top: 250px;
+    left: 540px;
+    font-size: x-large; 
 }
 
 .logout-box {

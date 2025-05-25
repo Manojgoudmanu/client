@@ -1,3 +1,8 @@
-
-
-
+body {
+    background-image: url("./assets/1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;
+    width: 100%;
+}

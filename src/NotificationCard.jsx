@@ -7,8 +7,11 @@ const Notifications = () => {
   const { transactions } = useContext(fetchdata);
 
   return (
+    <>
+    
+    <h2 className='Noti'>Notification Panel  🔔</h2>
     <div className="notifications-panel">
-      <h2>Notification Panel - 🔔</h2>
+      
 
       <div className="notification-content">
         {transactions.length > 0 ? (
@@ -26,8 +29,10 @@ const Notifications = () => {
         )}
       </div>
 
-      <Footer />
+      
     </div>
+    <Footer />
+    </>
   );
 };
 

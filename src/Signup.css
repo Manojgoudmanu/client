@@ -1,11 +1,11 @@
-.signup-container {
+/* .signup-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     background-color: #f9f9f9;
-  }
+  } */
 
   .signup-logo {
     width: 160px;
